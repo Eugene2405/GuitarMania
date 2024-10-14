@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+
+/* BASIC ADJUSTMENTS */
+
+html {
+  --MAIN-COLOR: rgb(96, 108, 56);
+  --SECONDARY-COLOR: rgb(187, 148, 87);
+  --BACKGROUND-COLOR: rgb(254, 250, 224);
+  --FIRST-ADDITIONAL-COLOR: rgb(40, 54, 24);
+  --SECOND-ADDITIONAL-COLOR: rgb(188, 108, 37);
+
+  --BOX-SHADOW: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* NAVBAR */
+
+nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem;
+
+  background-color: var(--BACKGROUND-COLOR);
+
+  box-shadow: var(--BOX-SHADOW);
+}
+
+nav div {
+  display: flex;
+  gap: 1rem;
+}
+
+nav .nav_menu-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  background-image: url("../icons/menu.svg");
+  background-size: contain;
+
+  transition: 300ms;
+}
+
+nav .nav_menu-btn:is(:hover, :focus) {
+  transform: scale(1.1);
+  transition: 300ms;
+}
+
+/* BUTTONS */
+
+.btn {
+  padding: 0.25rem 0.5rem;
+  border: 0.125rem solid transparent;
+  border-radius: 0.5rem;
+
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--MAIN-COLOR);
+
+  transition: 150ms;
+}
+
+.btn-main {
+  border: 0.125rem solid var(--MAIN-COLOR);
+}
+
+.btn-main:is(:hover, :focus) {
+  background-color: var(--MAIN-COLOR);
+  color: var(--BACKGROUND-COLOR);
+
+  transition: 150ms;
+}
+
+.btn-secondary:is(:hover, :focus) {
+  border: 0.125rem solid var(--MAIN-COLOR);
+}
+
+/* HEADER */
+
+.header_top {
+  height: 6.25rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Satisfy";
+  font-size: 2rem;
+
+  color: var(--BACKGROUND-COLOR);
+  background-image: url("../icons/guitar.png"),
+    radial-gradient(var(--MAIN-COLOR), var(--FIRST-ADDITIONAL-COLOR));
+}
+
+/* TEMP */
