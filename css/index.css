@@ -5,10 +5,9 @@
 
 html {
   --MAIN-COLOR: rgb(96, 108, 56);
-  --SECONDARY-COLOR: rgb(187, 148, 87);
   --BACKGROUND-COLOR: rgb(254, 250, 224);
   --FIRST-ADDITIONAL-COLOR: rgb(40, 54, 24);
-  --SECOND-ADDITIONAL-COLOR: rgb(188, 108, 37);
+  --ATTENTION-COLOR: rgb(148, 170, 77);
 
   --BOX-SHADOW: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -23,11 +22,30 @@ body {
   box-sizing: border-box;
 }
 
+/* HEADER */
+
+.header_top {
+  height: 6.25rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Satisfy";
+  font-size: 2rem;
+
+  color: var(--BACKGROUND-COLOR);
+  background-image: url("../icons/guitar.png"),
+    radial-gradient(var(--MAIN-COLOR), var(--FIRST-ADDITIONAL-COLOR));
+  background-position: center;
+}
+
 /* NAVBAR */
 
 nav {
   display: flex;
   flex-wrap: nowrap;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
 
@@ -39,6 +57,7 @@ nav {
 }
 
 nav div {
+  flex-basis: 33%;
   display: flex;
   gap: 1rem;
 }
@@ -56,6 +75,27 @@ nav .nav_menu-btn {
 nav .nav_menu-btn:is(:hover, :focus) {
   transform: scale(1.1);
   transition: 300ms;
+}
+
+nav div:nth-child(2) {
+  justify-content: center;
+}
+
+nav div:nth-child(3) {
+  justify-content: flex-end;
+}
+
+nav input {
+  width: 100%;
+
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+
+  color: var(--MAIN-COLOR);
+  background-color: transparent;
+
+  border: 2px solid var(--MAIN-COLOR);
+  border-radius: 2rem;
 }
 
 /* BUTTONS */
@@ -87,21 +127,6 @@ nav .nav_menu-btn:is(:hover, :focus) {
   border: 0.125rem solid var(--MAIN-COLOR);
 }
 
-/* HEADER */
-
-.header_top {
-  height: 6.25rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-family: "Satisfy";
-  font-size: 2rem;
-
-  color: var(--BACKGROUND-COLOR);
-  background-image: url("../icons/guitar.png"),
-    radial-gradient(var(--MAIN-COLOR), var(--FIRST-ADDITIONAL-COLOR));
-}
+/* MAIN */
 
 /* TEMP */
