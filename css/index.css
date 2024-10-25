@@ -14,6 +14,9 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
+
+  background: var(--BACKGROUND-COLOR);
+  background-size: 10rem;
 }
 
 * {
@@ -42,6 +45,20 @@ body {
 
 /* NAVBAR */
 
+header {
+  position: sticky;
+  top: 0;
+}
+
+.header_top {
+  position: relative;
+}
+
+header,
+.header_top {
+  z-index: 10;
+}
+
 nav {
   display: flex;
   flex-wrap: nowrap;
@@ -52,7 +69,6 @@ nav {
   padding: 0.5rem;
 
   background-color: var(--BACKGROUND-COLOR);
-
   box-shadow: var(--BOX-SHADOW);
 }
 
@@ -88,11 +104,12 @@ nav div:nth-child(3) {
 nav input {
   width: 100%;
 
-  padding-inline: 1rem;
-  padding-block: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
 
   color: var(--MAIN-COLOR);
   background-color: transparent;
+  background: url("../icons/search.svg#star") 0.5rem no-repeat;
+  background-size: 1.5rem;
 
   border: 2px solid var(--MAIN-COLOR);
   border-radius: 2rem;
@@ -129,4 +146,112 @@ nav input {
 
 /* MAIN */
 
+main {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url("../icons/guitar.png") center;
+  background-size: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.1;
+}
+
+/*   HERO */
+
+.hero {
+  width: min(64rem, 100%);
+  height: 35rem;
+  position: relative;
+  z-index: 1;
+
+  transition: 300ms;
+}
+
+.hero::before {
+  height: 93.75rem;
+  content: "";
+  background: url("../images/heroguitar.png") center no-repeat;
+  background-size: 60rem;
+  transform: rotateZ(-55deg);
+
+  position: absolute;
+  top: -600px;
+  left: 0;
+  right: -300px;
+  bottom: 0;
+
+  z-index: 2;
+  pointer-events: none;
+
+  transition: 300ms;
+}
+
+.hero > div:nth-child(1) {
+  padding: 2rem 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 28.125rem;
+
+  background-image: linear-gradient(
+    to right,
+    rgb(254, 250, 224),
+    rgb(241, 153, 87)
+  );
+  box-shadow: var(--BOX-SHADOW);
+  border-bottom: 0.125rem solid rgb(112, 47, 27);
+
+  transition: all 300ms;
+}
+
+.hero > div h1 {
+  color: rgb(102, 45, 25);
+  font-family: Satisfy;
+  font-size: 4rem;
+}
+
+.hero > div p {
+  color: rgb(184, 107, 80);
+  width: 30rem;
+}
+
+.hero > div a {
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: rgb(112, 47, 27);
+  transition: 300ms;
+  background-color: rgba(182, 129, 77, 0.5);
+}
+
+.hero > div a:hover {
+  transform: scale(101%);
+  background-color: rgba(182, 129, 77, 0.8);
+  transition: 300ms;
+}
+
 /* TEMP */
+
+@media screen and (min-width: 64rem) {
+  .hero {
+    margin-top: 1rem;
+    width: 64rem;
+  }
+
+  .hero > div:nth-child(1) {
+    border: 2px solid rgb(112, 47, 27);
+    border-radius: 8px;
+  }
+}
