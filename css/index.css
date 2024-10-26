@@ -209,23 +209,28 @@ main::before {
   transform: rotateZ(-55deg);
 
   position: absolute;
-  top: -600px;
+  top: -37.5rem;
   left: 0;
-  right: -300px;
+  right: -18.75rem;
   bottom: 0;
 
   pointer-events: none;
 
   transition: 300ms;
+
+  z-index: 1;
 }
 
 .hero > div:nth-child(1) {
-  padding: 2rem 2rem 0 2rem;
+  height: 28.125rem;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  height: 28.125rem;
+  padding: 2rem 2rem 0 2rem;
+
+  border-bottom: 0.125rem solid rgb(112, 47, 27);
 
   background-image: linear-gradient(
     to right,
@@ -233,20 +238,20 @@ main::before {
     rgb(241, 153, 87)
   );
   box-shadow: var(--BOX-SHADOW);
-  border-bottom: 0.125rem solid rgb(112, 47, 27);
 
   transition: all 300ms;
 }
 
 .hero > div h1 {
-  color: rgb(102, 45, 25);
   font-family: Satisfy;
   font-size: 4rem;
+  color: rgb(102, 45, 25);
 }
 
 .hero > div p {
-  color: rgb(184, 107, 80);
   width: 30rem;
+
+  color: rgb(184, 107, 80);
 }
 
 .hero > div a {
@@ -261,24 +266,75 @@ main::before {
 
 .hero > div a:hover {
   transform: scale(101%);
+
   background-color: rgba(182, 129, 77, 0.8);
+
   transition: 300ms;
 }
 
 /* MAIN-CARDS */
 
+.btn-previous,
+.btn-next {
+  position: absolute;
+  top: 10rem;
+
+  width: 3rem;
+  height: 3rem;
+
+  border: 2px solid var(--MAIN-COLOR);
+  border-radius: 100%;
+
+  background-color: var(--BACKGROUND-COLOR);
+
+  transition: 300ms;
+}
+
+.btn-previous:hover,
+.btn-next:hover {
+  transform: scale(1.1);
+}
+
+.btn-previous {
+  left: -1.5rem;
+
+  background: var(--BACKGROUND-COLOR) url("../icons/arrow-previous.png")
+    no-repeat;
+  background-position: 47% 50%;
+  background-size: 0.7rem;
+}
+
+.btn-next {
+  right: -1.5rem;
+
+  background: var(--BACKGROUND-COLOR) url("../icons/arrow-next.png") no-repeat;
+  background-position: 53% 50%;
+  background-size: 0.7rem;
+}
+
 .card {
   width: 100%;
+
+  position: relative;
 
   grid-row: 2;
   grid-column: span 3;
 
   padding: 1rem;
 
+  border: 2px solid transparent;
   border-radius: 0.5rem;
 
   background-color: var(--BACKGROUND-COLOR);
   box-shadow: var(--BOX-SHADOW);
+
+  cursor: pointer;
+
+  transition: 300ms;
+}
+
+.card:hover {
+  border: 2px solid var(--MAIN-COLOR);
 }
 
 .card > div {
@@ -287,9 +343,14 @@ main::before {
 }
 
 .card > div:nth-child(1) {
+  height: 18rem;
   padding-bottom: 0.5rem;
 
   border-bottom: 2px solid var(--MAIN-COLOR);
+}
+
+.card > div:nth-child(1) > .img-and-rating img {
+  width: 100%;
 }
 
 .card > div:nth-child(2) {
@@ -309,13 +370,13 @@ main::before {
   --rating: 3;
 
   position: absolute;
-  bottom: 50px;
-  left: 160px;
-  width: calc(10px * var(--stars));
-  height: 10px;
+  bottom: 1.25rem;
+  left: 10rem;
+  width: calc(0.625rem * var(--stars));
+  height: 0.625rem;
 
   background-image: url("../icons/star-empty.png");
-  background-size: 10px 10px;
+  background-size: 0.625rem 0.625rem;
   background-repeat: repeat-x;
 
   position: relative;
@@ -325,10 +386,10 @@ main::before {
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(10px * var(--rating));
+  width: calc(0.625rem * var(--rating));
   height: 100%;
   background-image: url("../icons/star-full.png");
-  background-size: 10px 10px;
+  background-size: 0.625rem 0.625rem;
   background-repeat: repeat-x;
 }
 
