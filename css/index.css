@@ -43,21 +43,21 @@ body {
   background-position: center;
 }
 
-/* NAVBAR */
+.header_top {
+  position: relative;
+}
 
 header {
   position: sticky;
   top: 0;
 }
 
-.header_top {
-  position: relative;
-}
-
 header,
 .header_top {
   z-index: 10;
 }
+
+/* NAVBAR */
 
 nav {
   display: flex;
@@ -159,35 +159,33 @@ main {
 main::before {
   width: 100%;
   height: 100%;
-  content: "";
-  background: url("../icons/guitar.png") center;
-  background-size: 10rem;
+
   position: absolute;
   top: 0;
   left: 0;
+
+  content: "";
+
+  background: url("../icons/guitar.png") center;
+  background-size: 10rem;
+
   opacity: 0.1;
 }
 
 .main-wrapper {
   width: 64rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-block: 5rem;
+
   z-index: 1;
 }
 
-.grid-section {
-  display: grid;
-  grid-template: auto / repeat(12, 1fr);
-  gap: 20px;
-}
-
-.grid-section > h1 {
-  grid-area: 1 / 5 / 1 / 9;
-
-  text-align: center;
-  font-weight: 200;
-}
-
-.grid-section > h1::before,
-.grid-section > h1::after {
+.main-wrapper > .cards-header::before,
+.main-wrapper > .cards-header::after {
   content: "-";
 }
 
@@ -195,40 +193,16 @@ main::before {
 
 .hero {
   width: min(64rem, 100%);
-  height: 35rem;
+  height: max(40rem, fit-content);
+
   position: relative;
-
-  transition: 300ms;
-}
-
-.hero::before {
-  height: 93.75rem;
-  content: "";
-  background: url("../images/heroguitar.png") center no-repeat;
-  background-size: 60rem;
-  transform: rotateZ(-55deg);
-
-  position: absolute;
-  top: -37.5rem;
-  left: 0;
-  right: -18.75rem;
-  bottom: 0;
-
-  pointer-events: none;
-
-  transition: 300ms;
-
-  z-index: 1;
-}
-
-.hero > div:nth-child(1) {
-  height: 28.125rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 2rem;
 
-  padding: 2rem 2rem 0 2rem;
+  padding: 2rem;
 
   border-bottom: 0.125rem solid rgb(112, 47, 27);
 
@@ -242,29 +216,53 @@ main::before {
   transition: all 300ms;
 }
 
-.hero > div h1 {
+.guitar {
+  height: 93.75rem;
+  content: "";
+  background: url("../images/heroguitar.png") center center no-repeat;
+  background-size: clamp(30rem, 130vw, 60rem);
+
+  position: absolute;
+  top: -37.5rem;
+  left: 0;
+  right: -18.75rem;
+  bottom: 0;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  transition: 100ms;
+}
+
+.hero h1 {
   font-family: Satisfy;
-  font-size: 4rem;
+  font-size: clamp(3rem, 9vw, 4rem);
   color: rgb(102, 45, 25);
 }
 
-.hero > div p {
+.hero p {
   width: 30rem;
 
-  color: rgb(184, 107, 80);
+  text-wrap: balance;
+
+  color: rgb(190, 98, 65);
 }
 
-.hero > div a {
-  font-size: 3rem;
+.hero a {
   padding: 1rem;
+
   border-radius: 0.5rem;
-  text-decoration: none;
+
+  font-size: clamp(1rem, 6vw, 3rem);
   color: rgb(112, 47, 27);
-  transition: 300ms;
   background-color: rgba(182, 129, 77, 0.5);
+  text-decoration: none;
+
+  transition: 300ms;
 }
 
-.hero > div a:hover {
+.hero a:hover {
   transform: scale(101%);
 
   background-color: rgba(182, 129, 77, 0.8);
@@ -273,6 +271,10 @@ main::before {
 }
 
 /* MAIN-CARDS */
+
+.cards-header {
+  font-weight: 200;
+}
 
 .btn-previous,
 .btn-next {
@@ -310,6 +312,13 @@ main::before {
   background: var(--BACKGROUND-COLOR) url("../icons/arrow-next.png") no-repeat;
   background-position: 53% 50%;
   background-size: 0.7rem;
+}
+
+.card-wrapper {
+  display: flex;
+  gap: 20px;
+
+  margin-top: 3rem;
 }
 
 .card {
@@ -401,9 +410,21 @@ main::before {
     width: 64rem;
   }
 
-  .hero > div:nth-child(1) {
+  .hero {
     border: 2px solid rgb(112, 47, 27);
-    border-radius: 8px;
+    border-radius: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 64rem) {
+  .hero p {
+    width: clamp(10rem, 50vw, 30rem);
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  .hero p {
+    content: "";
   }
 }
 
