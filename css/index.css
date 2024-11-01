@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Satisfy&display=swap");
 
 /* BASIC ADJUSTMENTS */
 
@@ -316,9 +318,9 @@ main::before {
 
 .card-wrapper {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
 
-  margin-top: 3rem;
+  margin-block: 3rem 1rem;
 }
 
 .card {
@@ -344,6 +346,8 @@ main::before {
 
 .card:hover {
   border: 2px solid var(--MAIN-COLOR);
+
+  transform: scale(1.02);
 }
 
 .card > div {
@@ -400,6 +404,124 @@ main::before {
   background-image: url("../icons/star-full.png");
   background-size: 0.625rem 0.625rem;
   background-repeat: repeat-x;
+}
+
+/* AD-SECTION */
+
+.ad-section {
+  width: 64rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ad {
+  width: 50%;
+  aspect-ratio: 2/1;
+
+  position: relative;
+
+  padding: 1rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  background-color: var(--MAIN-COLOR);
+
+  box-shadow: var(--BOX-SHADOW);
+
+  transition: 300ms;
+
+  cursor: pointer;
+}
+
+.ad:hover {
+  transform: scale(1.02);
+}
+
+#ad_1 {
+  background: black url("../images/ad-image1.jpg") no-repeat;
+  background-size: cover;
+  background-position: bottom 0px left 230px;
+}
+
+#ad_2 {
+  background: url("../images/ad-image2.jpg") no-repeat;
+  background-size: 150%;
+  background-position: 60% 100%;
+}
+
+#ad_1 h2 {
+  margin-block: 3rem 2rem;
+
+  font-family: Roboto Flex;
+  font-size: 1.8rem;
+  font-weight: 400;
+
+  color: rgb(82, 202, 241);
+}
+
+#ad_1 p {
+  width: 250px;
+  color: #fff;
+}
+
+#ad_2 h2 {
+  position: absolute;
+  top: 80px;
+  right: 45px;
+  transform: rotate(-4.5deg);
+
+  font-family: Nunito;
+  color: rgb(104, 49, 60);
+}
+
+#ad_2 p {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  width: 150px;
+  text-shadow: #000 0 0 16px;
+  font-size: 0.8rem;
+
+  color: #fff;
+}
+
+/* MAIN-BRANDING */
+
+.main-branding {
+  width: 64rem;
+  height: 6rem;
+
+  position: relative;
+
+  display: flex;
+  gap: 3rem;
+
+  padding: 1rem;
+  margin-block: 1rem;
+  border-radius: 0.5rem;
+
+  background-color: var(--BACKGROUND-COLOR);
+
+  box-shadow: var(--BOX-SHADOW);
+}
+
+.main-branding a {
+  display: flex;
+  align-items: center;
+}
+
+.main-branding img {
+  width: 100%;
+
+  filter: invert(50%);
+
+  transition: 300ms;
+}
+
+.main-branding img:hover {
+  transform: scale(1.02);
+  filter: invert(0%);
 }
 
 /* MEDIA */
