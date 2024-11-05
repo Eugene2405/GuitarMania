@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <div class="header_top"><h1>GuitarMania</h1></div>
-    <header>
-      <nav>
-        <div>
-          <a href="#" class="nav_menu-btn"></a>
-        </div>
-        <div>
-          <input type="text" placeholder="Search" />
-        </div>
-        <div>
-          <a href="#" class="btn btn-secondary">Register</a>
-          <a href="#" class="btn btn-secondary">Login</a>
-        </div>
-      </nav>
+    <header class="header">
+      <h1>GuitarMania</h1>
     </header>
+
+    <nav class="navbar">
+      <div>
+        <a href="#" class="nav_menu-btn"></a>
+      </div>
+      <div>
+        <input type="text" placeholder="Search" />
+      </div>
+      <div>
+        <a href="#" class="btn btn-secondary">Register</a>
+        <a href="#" class="btn btn-secondary">Login</a>
+      </div>
+    </nav>
 
     <main>
       <div class="hero">
@@ -40,6 +41,8 @@
       <div class="main-wrapper">
         <h1 class="cards-header">TOP SALES</h1>
         <div class="card-wrapper">
+          <button class="btn-previous"></button>
+          <button class="btn-next"></button>
           <div class="card" id="card_1">
             <div>
               <div class="img-and-rating">
@@ -47,7 +50,6 @@
                 <div class="star-rating"></div>
               </div>
               <p>Acoustic guitar Yamaha FC100C (Natural)</p>
-              <button class="btn-previous"></button>
             </div>
             <div>
               <var>210$</var>
@@ -92,24 +94,11 @@
               <var>225$</var>
               <var>In Stock</var>
             </div>
-            <button class="btn-next"></button>
           </div>
         </div>
         <section class="ad-section">
-          <div class="ad" id="ad_1">
-            <h2>BEST ROCK GUITARS</h2>
-            <p>
-              Choose best option to slam Best sound and premium materials. Don’t
-              lose your chance
-            </p>
-          </div>
-          <div class="ad" id="ad_2">
-            <h2>Bass for begginers</h2>
-            <p>
-              Deep bass can make any song sound much better. You can find best
-              basses for beginners in our shop
-            </p>
-          </div>
+          <div class="ad" id="ad_1"></div>
+          <div class="ad" id="ad_2"></div>
         </section>
         <section class="main-branding">
           <a href=""><img src="./images/brand-logos/logo1.png" alt="" /></a>

@@ -9,7 +9,6 @@ html {
   --MAIN-COLOR: rgb(96, 108, 56);
   --BACKGROUND-COLOR: rgb(254, 250, 224);
   --FIRST-ADDITIONAL-COLOR: rgb(40, 54, 24);
-  --ATTENTION-COLOR: rgb(148, 170, 77);
 
   --BOX-SHADOW: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -29,8 +28,10 @@ body {
 
 /* HEADER */
 
-.header_top {
+.header {
   height: 6.25rem;
+
+  position: relative;
 
   display: flex;
   justify-content: center;
@@ -45,28 +46,22 @@ body {
   background-position: center;
 }
 
-.header_top {
-  position: relative;
-}
-
-header {
-  position: sticky;
-  top: 0;
-}
-
-header,
-.header_top {
+.navbar,
+.header {
   z-index: 10;
 }
 
 /* NAVBAR */
 
-nav {
+.navbar {
   display: flex;
   flex-wrap: nowrap;
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+
+  position: sticky;
+  top: 0;
 
   padding: 0.5rem;
 
@@ -74,13 +69,13 @@ nav {
   box-shadow: var(--BOX-SHADOW);
 }
 
-nav div {
+.navbar div {
   flex-basis: 33%;
   display: flex;
   gap: 1rem;
 }
 
-nav .nav_menu-btn {
+.navbar .nav_menu-btn {
   width: 2.5rem;
   height: 2.5rem;
 
@@ -90,20 +85,16 @@ nav .nav_menu-btn {
   transition: 300ms;
 }
 
-nav .nav_menu-btn:is(:hover, :focus) {
+.navbar .nav_menu-btn:is(:hover, :focus) {
   transform: scale(1.1);
   transition: 300ms;
 }
 
-nav div:nth-child(2) {
-  justify-content: center;
-}
-
-nav div:nth-child(3) {
+.navbar div:nth-child(3) {
   justify-content: flex-end;
 }
 
-nav input {
+.navbar input {
   width: 100%;
 
   padding: 0.5rem 1rem 0.5rem 2.5rem;
@@ -175,8 +166,10 @@ main::before {
 }
 
 .main-wrapper {
-  width: 64rem;
+  width: min(66rem, 100vw);
+  padding-inline: 1rem;
 
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -292,6 +285,8 @@ main::before {
   background-color: var(--BACKGROUND-COLOR);
 
   transition: 300ms;
+
+  z-index: 1;
 }
 
 .btn-previous:hover,
@@ -320,16 +315,14 @@ main::before {
   display: flex;
   gap: 1rem;
 
+  position: relative;
+
   margin-block: 3rem 1rem;
 }
 
 .card {
-  width: 100%;
-
+  flex-basis: 100%;
   position: relative;
-
-  grid-row: 2;
-  grid-column: span 3;
 
   padding: 1rem;
 
@@ -409,7 +402,7 @@ main::before {
 /* AD-SECTION */
 
 .ad-section {
-  width: 64rem;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -417,13 +410,9 @@ main::before {
 }
 
 .ad {
-  width: 50%;
+  width: calc(50% - 0.5rem);
   aspect-ratio: 2/1;
 
-  position: relative;
-
-  padding: 1rem;
-  border: 2px solid transparent;
   border-radius: 0.5rem;
   background-color: var(--MAIN-COLOR);
 
@@ -439,65 +428,28 @@ main::before {
 }
 
 #ad_1 {
-  background: black url("../images/ad-image1.jpg") no-repeat;
-  background-size: cover;
-  background-position: bottom 0px left 230px;
+  background: black url("../images/ad2.png") no-repeat;
+  background-size: 110%;
+  background-position: center;
 }
 
 #ad_2 {
-  background: url("../images/ad-image2.jpg") no-repeat;
-  background-size: 150%;
-  background-position: 60% 100%;
-}
-
-#ad_1 h2 {
-  margin-block: 3rem 2rem;
-
-  font-family: "Roboto Flex";
-  font-size: 1.8rem;
-  font-weight: 400;
-
-  color: rgb(82, 202, 241);
-}
-
-#ad_1 p {
-  width: 250px;
-  color: #fff;
-}
-
-#ad_2 h2 {
-  position: absolute;
-  top: 80px;
-  right: 45px;
-  transform: rotate(-4.5deg);
-
-  font-family: Nunito;
-  color: rgb(104, 49, 60);
-}
-
-#ad_2 p {
-  position: absolute;
-  right: 32px;
-  bottom: 32px;
-  width: 150px;
-  text-shadow: #000 0 0 16px;
-  font-size: 0.8rem;
-
-  color: #fff;
+  background: url("../images/ad1.png") no-repeat;
+  background-size: 110%;
+  background-position: center;
 }
 
 /* MAIN-BRANDING */
 
 .main-branding {
-  width: 64rem;
-  height: 6rem;
+  height: auto;
 
   position: relative;
 
   display: flex;
-  gap: 3rem;
+  gap: 5%;
 
-  padding: 1rem;
+  padding: 2%;
   margin-block: 1rem;
   border-radius: 0.5rem;
 
@@ -528,8 +480,7 @@ main::before {
 /* MAIN-WORKSHOP-LINK */
 
 .main-workshop-link {
-  height: 30rem;
-  width: 64rem;
+  width: 100%;
 
   position: relative;
 
@@ -552,8 +503,8 @@ main::before {
   border-radius: 0.5rem;
 
   background: url("../images/workshop-image.jpg") no-repeat;
-  background-size: 85%;
-  background-position: bottom 0px right -150px;
+  background-size: 80%;
+  background-position: center right;
   filter: brightness(90%);
 
   transition: 1s;
@@ -561,40 +512,43 @@ main::before {
 
 .main-workshop-link > div:nth-child(2) {
   width: 100%;
-  height: 100%;
+  height: fit-content;
 
   display: flex;
+  gap: min(4rem, 6cqw);
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 3rem;
+  padding: min(3rem, 4.5cqw);
   border-radius: 0.5rem;
 
   background: var(--BACKGROUND-COLOR);
-  clip-path: polygon(0 0, 55% 0, 45% 100%, 0 100%);
+  clip-path: polygon(0 0, 45% 0, 35% 100%, 0 100%);
 }
 
 .main-workshop-link > div:nth-child(2) h1 {
-  width: 30rem;
+  width: min(25rem, 40cqw);
 
   font-family: "Roboto Flex";
   font-weight: 500;
-  font-size: 2.5rem;
+  font-size: min(2rem, 3.1cqw);
   color: var(--MAIN-COLOR);
 }
 
 .main-workshop-link > div:nth-child(2) p {
-  width: 27rem;
+  width: min(22rem, 33cqw);
+
+  font-size: min(1rem, 1.5cqw);
 }
 
 .main-workshop-link > div:nth-child(2) a {
   width: fit-content;
 
-  padding: 1rem 2rem;
+  padding: min(1rem, 1.5cqw) min(2rem, 3cqw);
   border: 2px solid var(--MAIN-COLOR);
   border-radius: 0.5rem;
 
-  font-size: 2rem;
+  font-size: 3cqw;
   text-decoration: none;
   text-align: center;
   color: var(--MAIN-COLOR);
@@ -671,12 +625,6 @@ h2 {
 @media screen and (max-width: 64rem) {
   .hero p {
     width: clamp(10rem, 50vw, 30rem);
-  }
-}
-
-@media screen and (max-width: 36rem) {
-  .hero p {
-    content: "";
   }
 }
 
