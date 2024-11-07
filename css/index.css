@@ -267,6 +267,16 @@ main::before {
 
 /* MAIN-CARDS */
 
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  position: relative;
+
+  margin-block: 3rem 1rem;
+}
+
 .cards-header {
   font-weight: 200;
 }
@@ -274,10 +284,10 @@ main::before {
 .btn-previous,
 .btn-next {
   position: absolute;
-  top: 10rem;
+  top: 15cqw;
 
-  width: 3rem;
-  height: 3rem;
+  width: 4.5cqw;
+  height: 4.5cqw;
 
   border: 2px solid var(--MAIN-COLOR);
   border-radius: 100%;
@@ -295,36 +305,29 @@ main::before {
 }
 
 .btn-previous {
-  left: -1.5rem;
+  left: -2.25cqw;
 
   background: var(--BACKGROUND-COLOR) url("../icons/arrow-previous.png")
     no-repeat;
   background-position: 47% 50%;
-  background-size: 0.7rem;
+  background-size: 1cqw;
 }
 
 .btn-next {
-  right: -1.5rem;
+  right: -2.25cqw;
 
   background: var(--BACKGROUND-COLOR) url("../icons/arrow-next.png") no-repeat;
   background-position: 53% 50%;
-  background-size: 0.7rem;
-}
-
-.card-wrapper {
-  display: flex;
-  gap: 1rem;
-
-  position: relative;
-
-  margin-block: 3rem 1rem;
+  background-size: 1cqw;
 }
 
 .card {
   flex-basis: 100%;
   position: relative;
 
-  padding: 1rem;
+  aspect-ratio: 1/1.5;
+
+  padding: 1.5cqw;
 
   border: 2px solid transparent;
   border-radius: 0.5rem;
@@ -333,6 +336,10 @@ main::before {
   box-shadow: var(--BOX-SHADOW);
 
   cursor: pointer;
+
+  overflow-wrap: break-word;
+  word-break: break-word;
+  text-align: center;
 
   transition: 300ms;
 }
@@ -349,8 +356,7 @@ main::before {
 }
 
 .card > div:nth-child(1) {
-  height: 18rem;
-  padding-bottom: 0.5rem;
+  height: 90%;
 
   border-bottom: 2px solid var(--MAIN-COLOR);
 }
@@ -360,7 +366,7 @@ main::before {
 }
 
 .card > div:nth-child(2) {
-  padding-top: 0.5rem;
+  padding-top: 0.75cqw;
 }
 
 .card > div:nth-child(2) > var {
@@ -371,18 +377,22 @@ main::before {
   color: rgb(15, 208, 0);
 }
 
+.card :is(p, var) {
+  font-size: 1.5cqw;
+}
+
 .star-rating {
   --stars: 5;
   --rating: 3;
 
   position: absolute;
-  bottom: 1.25rem;
-  left: 10rem;
-  width: calc(0.625rem * var(--stars));
-  height: 0.625rem;
+  bottom: 5%;
+  left: 75%;
+  width: calc(1.2cqw * var(--stars));
+  height: 1.2cqw;
 
   background-image: url("../icons/star-empty.png");
-  background-size: 0.625rem 0.625rem;
+  background-size: 1.2cqw 1.2cqw;
   background-repeat: repeat-x;
 
   position: relative;
@@ -392,10 +402,10 @@ main::before {
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(0.625rem * var(--rating));
+  width: calc(1.2cqw * var(--rating));
   height: 100%;
   background-image: url("../icons/star-full.png");
-  background-size: 0.625rem 0.625rem;
+  background-size: 1.2cqw 1.2cqw;
   background-repeat: repeat-x;
 }
 
@@ -418,25 +428,25 @@ main::before {
 
   box-shadow: var(--BOX-SHADOW);
 
-  transition: 300ms;
+  transition: transform 300ms;
 
   cursor: pointer;
 }
 
-.ad:hover {
-  transform: scale(1.02);
-}
-
 #ad_1 {
-  background: black url("../images/ad2.png") no-repeat;
-  background-size: 110%;
-  background-position: center;
+  background: url("../images/ad1.png") no-repeat;
+  background-size: 140%;
+  background-position: top 50% left 30%;
 }
 
 #ad_2 {
-  background: url("../images/ad1.png") no-repeat;
-  background-size: 110%;
-  background-position: center;
+  background: url("../images/ad2.png") no-repeat;
+  background-size: 160%;
+  background-position: bottom 10% left 60%;
+}
+
+.ad:hover {
+  transform: scale(1.02);
 }
 
 /* MAIN-BRANDING */
@@ -625,6 +635,39 @@ h2 {
 @media screen and (max-width: 64rem) {
   .hero p {
     width: clamp(10rem, 50vw, 30rem);
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  #card_4 {
+    display: none;
+  }
+
+  .card :is(p, var) {
+    font-size: 2cqw;
+  }
+
+  .star-rating {
+    width: calc(1.2cqw * var(--stars));
+    height: 1.2cqw;
+
+    background-size: 2cqw 2cqw;
+
+    position: relative;
+  }
+  .star-rating::before {
+    width: calc(2cqw * var(--rating));
+    height: 100%;
+
+    background-size: 2cqw 2cqw;
+  }
+
+  .ad-section {
+    flex-direction: column;
+  }
+
+  .ad {
+    width: 100%;
   }
 }
 
