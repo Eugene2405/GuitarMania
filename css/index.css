@@ -7,8 +7,9 @@
 
 html {
   --MAIN-COLOR: rgb(96, 108, 56);
+  --SECONDARY-COLOR: rgb(74, 82, 47);
   --BACKGROUND-COLOR: rgb(254, 250, 224);
-  --FIRST-ADDITIONAL-COLOR: rgb(40, 54, 24);
+  --ADDITIONAL-COLOR: rgb(40, 54, 24);
 
   --BOX-SHADOW: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -42,7 +43,7 @@ body {
 
   color: var(--BACKGROUND-COLOR);
   background-image: url("../icons/guitar.png"),
-    radial-gradient(var(--MAIN-COLOR), var(--FIRST-ADDITIONAL-COLOR));
+    radial-gradient(var(--MAIN-COLOR), var(--ADDITIONAL-COLOR));
   background-position: center;
 }
 
@@ -63,19 +64,20 @@ body {
   position: sticky;
   top: 0;
 
+  border-bottom: 2px solid var(--MAIN-COLOR);
   padding: 0.5rem;
 
   background-color: var(--BACKGROUND-COLOR);
   box-shadow: var(--BOX-SHADOW);
 }
 
-.navbar div {
+.navbar > div {
   flex-basis: 33%;
   display: flex;
   gap: 1rem;
 }
 
-.navbar .nav_menu-btn {
+.navbar .nav-menu-btn {
   width: 2.5rem;
   height: 2.5rem;
 
@@ -85,16 +87,22 @@ body {
   transition: 300ms;
 }
 
-.navbar .nav_menu-btn:is(:hover, :focus) {
-  transform: scale(1.1);
-  transition: 300ms;
+.navbar .nav-menu-btn input {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  opacity: 0;
+}
+
+.flipped {
+  transform: rotate(90deg);
 }
 
 .navbar div:nth-child(3) {
   justify-content: flex-end;
 }
 
-.navbar input {
+.navbar .searchbox {
   width: 100%;
 
   padding: 0.5rem 1rem 0.5rem 2.5rem;
@@ -135,6 +143,107 @@ body {
 
 .btn-secondary:is(:hover, :focus) {
   border: 0.125rem solid var(--MAIN-COLOR);
+}
+
+/* ASIDE */
+
+.sidebar {
+  width: fit-content;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: absolute;
+  top: 3.5rem;
+  left: -20rem;
+
+  padding-block: 1rem;
+  border-right: 2px solid var(--MAIN-COLOR);
+
+  background-color: var(--BACKGROUND-COLOR);
+
+  transition: 300ms;
+}
+
+.sidebar div {
+  width: 100%;
+}
+
+.sidebar button {
+  width: 100%;
+
+  padding: 1rem;
+  border: 0;
+
+  font-size: 2rem;
+  color: var(--MAIN-COLOR);
+  background-color: transparent;
+
+  transition: 300ms;
+
+  cursor: pointer;
+}
+
+.sidebar button box-icon {
+  fill: var(--MAIN-COLOR);
+
+  transition: 300ms;
+}
+
+.sidebar button:hover {
+  color: var(--BACKGROUND-COLOR);
+  background-color: var(--MAIN-COLOR);
+}
+
+.sidebar button:hover box-icon {
+  fill: var(--BACKGROUND-COLOR);
+
+  transition: 300ms;
+}
+
+.sidebar .clicked {
+  color: var(--BACKGROUND-COLOR);
+  background-color: var(--MAIN-COLOR);
+}
+
+.sidebar .clicked box-icon {
+  fill: var(--BACKGROUND-COLOR);
+  transform: rotate(180deg);
+}
+
+.sidebar .dropdown {
+  height: 0;
+  overflow: hidden;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: 300ms;
+}
+
+.dropdown a {
+  font-weight: 300;
+  padding-block: 0.5rem;
+  text-decoration: none;
+  color: var(--MAIN-COLOR);
+  font-size: 1.2rem;
+  transition: 100ms;
+}
+
+.dropdown a:hover {
+  padding-left: 0.5rem;
+  font-weight: 400;
+}
+
+.dropdown box-icon {
+  width: 1rem;
+}
+
+.sidebar .dropdown.shown {
+  opacity: 1;
+  transition: height 300ms;
+  border-bottom: 2px solid var(--MAIN-COLOR);
 }
 
 /* MAIN */
@@ -218,7 +327,7 @@ main::before {
   background-size: clamp(30rem, 110vw, 60rem);
 
   position: absolute;
-  top: -37.5rem;
+  top: -40rem;
   left: 0;
   right: -17.75rem;
   bottom: 0;
@@ -567,6 +676,8 @@ main::before {
 .footer {
   width: 100%;
 
+  position: relative;
+
   display: flex;
   justify-content: space-between;
 
@@ -578,6 +689,8 @@ main::before {
   background-color: var(--BACKGROUND-COLOR);
 
   box-shadow: var(--BOX-SHADOW);
+
+  z-index: 10;
 }
 
 .footer > div:nth-child(2) {
