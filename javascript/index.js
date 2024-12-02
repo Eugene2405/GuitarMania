@@ -58,6 +58,33 @@ toggleButtons.forEach((button) => {
   });
 });
 
+const openModalButtons = document.querySelectorAll(".open-modal-btn");
+const closeModalButtons = document.querySelectorAll(".close-modal-btn");
+const overlay = document.querySelector("#overlay");
+
+openModalButtons.forEach((button) => {
+  const target = document.querySelector(button.dataset.modalTarget);
+
+  button.addEventListener("click", () => {
+    target.show();
+    target.classList.add("shown");
+    overlay.classList.add("shown");
+  });
+});
+
+closeModalButtons.forEach((button) => {
+  const target = button.closest(".modal");
+
+  button.addEventListener("click", () => {
+    target.classList.remove("shown");
+    overlay.classList.remove("shown");
+    target.addEventListener("transitioned", () => {
+      target.close();
+    }),
+      { once: true };
+  });
+});
+
 menuCheckbox.addEventListener("change", checkboxState);
 window.addEventListener("load", () => {
   sidebar.style.top = `${navHeight - 2}px`;

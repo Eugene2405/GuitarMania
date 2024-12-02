@@ -3,24 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>GuitarMania</title>
   </head>
   <body>
+    <div id="overlay"></div>
     <header class="header">
       <h1>GuitarMania</h1>
     </header>
-
     <nav class="navbar">
-      <label class="nav-menu-btn" for="menu-checkbox">
-        <input type="checkbox" class="menu-checkbox" id="menu-checkbox" />
-      </label>
+      <div>
+        <label class="nav-menu-btn" for="menu-checkbox">
+          <input type="checkbox" class="menu-checkbox" id="menu-checkbox" />
+        </label>
+      </div>
       <div>
         <input type="text" placeholder="Search" class="searchbox" />
       </div>
       <div>
-        <a href="#" class="btn btn-secondary">Sign Up</a>
-        <a href="#" class="btn btn-secondary">Log In</a>
+        <button class="cart" id="Cart">
+          <box-icon
+            size="2rem"
+            color="#606c38"
+            stroke-width="1"
+            name="cart"
+          ></box-icon>
+        </button>
+        <button data-modal-target="#profile" class="open-modal-btn">
+          <box-icon size="2rem" name="user-circle" color="#606c38"></box-icon>
+        </button>
       </div>
 
       <aside class="sidebar">
@@ -68,6 +80,51 @@
         </div>
       </aside>
     </nav>
+
+    <dialog id="profile" class="modal">
+      <div class="head">
+        <div class="flex center">
+          <svg-icon src="./icons/user-circle.svg"></svg-icon>
+          <h1>Profile</h1>
+        </div>
+        <button class="close-modal-btn">
+          <box-icon name="x" color="#606c38"></box-icon>
+        </button>
+      </div>
+      <div class="body">
+        <h1 class="header">Create your profile</h1>
+        <div class="input-group">
+          <span>full name</span>
+          <input type="text" placeholder="James Hetfield" />
+        </div>
+        <div class="input-group">
+          <span>email</span>
+          <input type="email" placeholder="youremail@gmail.com" />
+        </div>
+        <div class="input-group">
+          <span>password</span>
+          <input type="password" placeholder="Password" />
+        </div>
+
+        <button class="btn primary">Sign Up</button>
+        <div class="auth-methods">
+          <button class="btn secondary">
+            <box-icon type="logo" name="google"></box-icon>
+            Google
+          </button>
+          <button class="btn secondary">
+            <box-icon type="logo" name="apple"></box-icon>
+            Apple
+          </button>
+        </div>
+        <button class="btn regular sm">Already have an account?</button>
+        <p class="agreement">
+          By registring, you agree to the
+          <a href="" class="btn link">User Agreement</a> and
+          <a href="" class="btn link">Privacy Policy</a>
+        </p>
+      </div>
+    </dialog>
 
     <main>
       <section class="hero">
@@ -204,6 +261,7 @@
         </div>
       </div>
     </footer>
+    <script src="javascript/components/svgIcon.js"></script>
     <script src="./javascript/index.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </body>
